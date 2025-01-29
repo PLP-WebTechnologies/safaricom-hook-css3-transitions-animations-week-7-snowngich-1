@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive and Dynamic website</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: azure;
+        }
+        button{
+            background-color: orange;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 4px;
+            font-size: 20px;
+            transition: all 0.5s ease-in-out;
+            
+        }
+        
+        button:hover{
+            background-color: orangered;
+            transform: scale(1.1);
+        }
+        div{
+            display: inline-block;
+            background-color: orange;
+            padding: 40px;
+            margin: 20px;
+            animation: spin 1.5s linear infinite,color-change 1s ease infinite;
+
+        }
+        @keyframes spin{
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        @keyframes color-change {
+  0% { background-color: #9b59b6; }
+  50% { background-color: #2ecc71; }
+  100% { background-color: #9b59b6; }
+}  
+#animated-box{
+    width: 100px;
+  height: 100px;
+  background-color: #9b59b6;
+  transition: transform 0.3s ease;  
+}
+#animated-box:hover {
+  animation: color-change 1s ease infinite;
+  transform: rotate(20deg);
+}
+
+@keyframes color-change {
+  0% { background-color: #9b59b6; }
+  50% { background-color: #2ecc71; }
+  100% { background-color: #9b59b6; }
+}
+    </style>
+</head>
+<body>
+    <h1>Buttons that change color and grow</h1>
+    <button>Button1</button>
+    <button>Button1</button>
+    <button>Button1</button>
+    <button>Button1</button>
+
+    <h1>elements that spin</h1>
+    <div>spin1</div>
+    <div>spin1</div>
+    <div>spin1</div>
+
+    <section>
+        <h1>Javascript functions</h1>
+        <button onclick="myFunction()">Click me</button>
+        
+        <ul id="list"></ul>
+        <button id="add">Add Item</button>
+
+        <p id="text">This paragraph changes when button is clicked</p>
+        <button id="btn">Click to change the paragraph</button>
+    </section>
+    <section>
+        <h1>Combining Css animations with Javascript</h1>
+        <div id="animated-box"></div>
+        <button id="btn1">Click this button  to stop animations of the box</button>
+    </section>
+
+    <script>
+        function myFunction() {
+            alert("Hello World!");
+        }
+        
+        const list = document.getElementById('list');
+        const addButton = document.getElementById('add');
+
+        addButton.addEventListener('click',()=>{
+            const item = document.createElement('li');
+            item.textContent="New Item";
+            list.appendChild(item);
+        });
+
+        const text = document.getElementById('text');
+        const button = document.getElementById('btn');
+
+        button.onclick=()=>{
+            text.textContent="This paragraph has been changed";
+            text.style.color="white";
+            text.style.background="black";
+        };
+
+        const box=document.getElementById('animated-box');
+        const button=document.getElementById('btn1');
+
+        button.onclick=()=>{
+            box.style.display="none";
+        }
+    </script>
+    
+</body>
+</ht
